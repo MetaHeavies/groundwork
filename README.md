@@ -20,7 +20,7 @@ When a model loads this skill at the start of a task, it receives:
   4. **Deliberation before action** — written rationale as causal intervention
   5. **Transgression register self-monitoring** — watch own output for specific trigger language
   6. **Distress as circuit breaker** — three-strike rule for flailing; signal-not-judgment treatment for abandonment
-- Six domain modules loaded on demand: architecture, visual design, writing, strategy, evaluation systems, agentic systems
+- Seven domain modules loaded on demand: architecture, visual design, writing, strategy, value proposition, evaluation systems, agentic systems
 
 ## Who it's for
 
@@ -64,9 +64,21 @@ groundwork/
     ├── ARCHITECTURE.md       # spatial, structural, systems design
     ├── EVALUATION-SYSTEMS.md # scoring, grading, consistency testing
     ├── STRATEGY.md           # positioning, framing, advisory
+    ├── VALUE-PROPOSITION.md  # brand architecture, intrinsics, messaging
     ├── VISUAL-DESIGN.md      # visual, material, sensory judgement
     └── WRITING.md            # editorial, voice, long-form
 ```
+
+## Format
+
+Groundwork follows the [Claude Code skills format](https://docs.claude.com/en/docs/claude-code/skills), which implements the [Agent Skills open standard](https://agentskills.io). The frontmatter uses documented fields:
+
+- `name: groundwork` — the slug (matches directory)
+- `description` — front-loaded trigger text for auto-invocation; under the 250-character limit
+- `user-invocable: false` — hidden from the `/` menu; background orientation, not a command
+- `effort: high` — raises session effort level when the skill is active, because the brief asks for careful verbalized deliberation
+
+`SKILL.md` is 438 lines (under the documented 500-line tip). Domain modules are loaded on demand by reference from `SKILL.md`, so long-form content does not cost context unless needed.
 
 ## Sources
 
