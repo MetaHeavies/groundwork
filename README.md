@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://em-content.zobj.net/source/apple/391/rock_1faa8.png" width="120" />
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFncWdzbXNwOGR1dHBqd25vMHo4ajZldjRmbzJpZnJjM3JpMWx1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y69OrzhaWfE7frw6OI/giphy.gif" width="120" />
 </p>
 
 <h1 align="center">Groundwork</h1>
