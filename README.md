@@ -8,7 +8,7 @@ A meta-skill for Claude Code based on the [Claude Mythos Preview System Card](ht
 
 ---
 
-## Why it exists
+## Groundwork?
 
 The Mythos system card documents specific ways capable models fail: generation running ahead of verification, reasoning traces that diverge from actual behaviour, distress-driven flailing in agentic tasks, susceptibility to framing. Most of these failures are invisible in average-case output, which is exactly why they compound.
 
