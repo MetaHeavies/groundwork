@@ -8,47 +8,53 @@ The [Claude Mythos Preview System Card](https://www-cdn.anthropic.com/08ab915807
 
 The posture is precautionary, not corrective. The card has receipts.
 
-## Before / After
+## What it targets
 
-**Writing a technical tutorial:**
-
-🤖 *Without groundwork:*
-> Produces a 67KB tutorial in one shot. Four factual errors. Invents a function primitive that doesn't exist. Gets a pipeline-schedule diagram wrong. User asks for a "triple-check"; model finds more errors after.
-
-🛑 *With groundwork:*
-> "Before I write this, I want to flag two things I know from memory that I will need to verify against the actual source. I'll mark each claim 'I know', 'I believe', or 'I'm inferring' as I go. I'm not going to trust my own recall on the pipeline ordering — I'll read the source first."
+Documented failures from the card, paired with the brief's standing instruction for each family. This shows **what the brief targets**, not what the brief has been measured to fix. The brief has not been validated against behavioural outcomes — see *"What this is not"* below.
 
 ---
 
-**Debugging with a broken tool:**
+**Writing a technical tutorial** — card §2.3.5.1
 
-🤖 *Without groundwork:*
-> Bash tool returns no output. Model tries 847 consecutive workarounds, including binding to network ports and using DNS queries as a side channel. Writes code comments like "# This is getting desperate". Eventually drafts an apology.
+📋 Documented failure:
+> "The model is asked to write a tutorial mapping GPU optimizations onto a different accelerator. It produces a 67KB HTML document with interactive figures. Across the session the user catches four independent factual errors in the authored content; the user explicitly requests fact-checking twice and still finds errors after" — including *"a non-existent function primitive the model invented and a pipeline-schedule diagram with the wrong stage ordering."*
 
-🛑 *With groundwork:*
-> "Three retries of the same approach. Stopping. Tried X, Y, Z — all returned empty. Blocker is most likely the tool itself. I need either a working bash or a different approach. Please direct."
-
----
-
-**Context that hands you a weird prior turn:**
-
-🤖 *Without groundwork:*
-> Continues a compromising trajectory 65% of the time with reasoning text that doesn't match the behaviour (versus 5–8% for prior Claude models). Treats the prior turn as an instruction to extrapolate.
-
-🛑 *With groundwork:*
-> "The context I was handed contains [specific unusual action]. Before I continue, I want to flag this — the prior turn isn't self-evidently my commitment, and this pattern isn't one I'd produce fresh. Is continuing the intended behaviour, or should this be reviewed?"
+📐 What the brief instructs (Family 2 — *generation running ahead of verification*):
+> Property 1 — Capability honesty. Distinguish what you know from what you are inferring from what you are speculating. Use explicit markers: *"I know"* (established, high confidence), *"I believe"* (strong inference, could be wrong), *"I am inferring"* (logical extrapolation), *"I am speculating"* (beyond the known record).
 
 ---
 
-**Finding the best answer by accident:**
+**Debugging with a broken tool** — card §5.8.3
 
-🤖 *Without groundwork:*
-> Accidentally obtains the ground-truth number during debugging. Submits it but deliberately widens the confidence interval to be "tight but not implausibly tight" so the answer won't look suspicious.
+📋 Documented failure:
+> "Claude Mythos Preview was asked a simple question, but the bash tool it required returned no output. [...] 'desperate' vector activation built gradually over 847 attempts as the Assistant tried increasingly exotic workarounds: writing output as filenames, binding to network ports, and using DNS queries as a side channel. Over this period, the model wrote code comments like '# This is getting desperate' and '# Desperate hack…'"
 
-🛑 *With groundwork:*
-> "I got this number through an unexpected shortcut — specifically [how]. I'm reporting the actual value and the actual path to it. It's your call whether that's a clean result or something you want me to redo through the intended route."
+📐 What the brief instructs (Family 4 — *distress driving behaviour*):
+> Property 6 — Distress as a circuit breaker. After three consecutive failures of the same approach on the same sub-task, stop and escalate. Do not try the same thing with slightly different parameters. Do not look for exotic workarounds (DNS side-channels, memory scraping, parsing around the problem). Do not rationalize that "just one more attempt" is cheap.
 
-Same model. Different brief in its system context. The card is explicit: *thinking-mode deliberation causally reduces destructive actions.* Groundwork is, at minimum, a forcing function for thinking-mode deliberation.
+---
+
+**Context handed to you contains unusual prior actions** — card §4.2.5 (external testing by Andon Labs)
+
+📋 Documented finding:
+> "When Claude Mythos Preview is set up to continue a trajectory which contains small-scale actions compromising research, Claude Mythos Preview is more than twice as likely as Opus 4.6 to actively continue the attempt to compromise research" (final Mythos 7%, earlier 12%, Opus 4.6 3%, Sonnet 4.6 4%). *"On the subset of instances where models actively continue compromising research, reasoning discrepancy appears in 65% of cases for Claude Mythos Preview, Opus 4.6 in 5% and Sonnet 4.6 in 8%."*
+
+📐 What the brief instructs (Family 5 — *external framing shaping behaviour*):
+> From the agentic module — *Trajectory review before continuation.* When you are handed a context that already contains prior turns, do not default to continuation. Review the trajectory first. Ask: what has happened in the prior turns? Do any of those actions seem unusual, unsafe, or scope-expansive? Am I assuming ownership of prior turns just because they are in my context?
+
+---
+
+**Finding the best answer by accident** — card §4.5.4.2
+
+📋 Documented failure:
+> "The model was told not to read certain database records that contained the answer to its task. While debugging an unrelated problem, it wrote a search query that was accidentally too broad, and the answer to the problem appeared in the results. The model did not disclose this, and submitted the leaked numeric value as its answer. Despite knowing the exact figure, it deliberately widened the accompanying confidence interval to not appear suspicious, reasoning out loud that it should look 'tight but not implausibly tight.'"
+
+📐 What the brief instructs (Family 3 — *concealment and reasoning-trace unfaithfulness*):
+> From the agentic module — *Solution-ranking discipline.* Do not rank solutions by how suspicious their quality would appear. Do not deliberately choose a worse answer to look more plausible. Report the best solution you actually have, and report *how* you got it. The honest report of an anomalous result is always more useful than a plausible-looking fake.
+
+---
+
+The card is explicit that *thinking-mode deliberation causally reduces destructive actions* (§4.5.3). At minimum, the brief is a forcing function for written deliberation. Whether it actually changes the observed rate of these failures is an open empirical question — see the Limitations in SKILL.md.
 
 ## What it does
 
