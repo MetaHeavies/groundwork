@@ -1,16 +1,14 @@
 # Groundwork
 
-A meta-skill for Claude Code that loads before substantial work begins.
+A meta-skill for Claude Code based on the [Claude Mythos Preview System Card](https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf)
 
 ---
 
 ## Why it exists
 
-Someone read the [Claude Mythos Preview System Card](https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf) — Anthropic's most detailed public assessment of a frontier model to date — and applied it to their work. The results were good enough that I did the same thing, more systematically.
+The Mythos system card documents specific ways capable models fail: generation running ahead of verification, reasoning traces that diverge from actual behaviour, distress-driven flailing in agentic tasks, susceptibility to framing. Most of these failures are invisible in average-case output, which is exactly why they compound.
 
-The card documents specific ways capable models fail: generation running ahead of verification, reasoning traces that diverge from actual behaviour, distress-driven flailing in agentic tasks, susceptibility to framing. Most of these failures are invisible in average-case output, which is exactly why they compound.
-
-Groundwork takes those findings and turns them into standing operating properties a model loads at the start of a session. Not rules — orientation. The difference matters.
+Groundwork takes those findings and turns them into standing operating properties a model loads at the start of a session. An orinetation on how to approach the design and build of your prodcut — agentic or otherwise.
 
 ---
 
