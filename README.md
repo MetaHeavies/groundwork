@@ -1,4 +1,8 @@
-# Groundwork
+<p align="center">
+  <img src="https://em-content.zobj.net/source/apple/391/rock_1faa8.png" width="120" />
+</p>
+
+<h1 align="center">Groundwork</h1>
 
 A meta-skill for Claude Code based on the [Claude Mythos Preview System Card](https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf)
 
