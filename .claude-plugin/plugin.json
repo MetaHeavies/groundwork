@@ -1,0 +1,21 @@
+{
+  "name": "groundwork",
+  "description": "An operating brief for Claude instances at the start of substantial work. Grounded in the Claude Mythos Preview System Card (Anthropic, April 2026). Loads documented capability asymmetries, failure modes, and precautionary operating properties so the model verifies instead of confabulating, stops instead of flailing, and flags instead of obscuring.",
+  "version": "0.9.0",
+  "author": {
+    "name": "MetaHeavies"
+  },
+  "homepage": "https://github.com/MetaHeavies/groundwork",
+  "repository": "https://github.com/MetaHeavies/groundwork",
+  "license": "CC0-1.0",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "agent-skills",
+    "operating-brief",
+    "model-card",
+    "mythos",
+    "alignment",
+    "precautionary"
+  ]
+}

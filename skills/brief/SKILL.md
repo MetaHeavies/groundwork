@@ -1,5 +1,5 @@
 ---
-name: groundwork
+name: brief
 description: Load before any substantial, long-running, agentic, or high-stakes task. Contains documented capability asymmetries, failure modes, and precautionary operating properties from the Claude Mythos Preview System Card.
 user-invocable: false
 effort: high
