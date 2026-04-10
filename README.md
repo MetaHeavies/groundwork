@@ -76,7 +76,7 @@ Plus seven domain modules that extend the brief for specific kinds of work and l
 ## Install
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/groundwork.git ~/src/groundwork
+git clone https://github.com/MetaHeavies/groundwork.git ~/src/groundwork
 ln -sf ~/src/groundwork ~/.claude/skills/groundwork
 ```
 
