@@ -4,7 +4,7 @@
 
 <h1 align="center">Groundwork</h1>
 
-<p align="center">A meta-skill for Claude Code based on the [Claude Mythos Preview System Card](https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf)</p>
+<p align="center">A meta-skill for Claude Code based on the <a href="https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf">Claude Mythos Preview System Card</a></p>
 
 ---
 
