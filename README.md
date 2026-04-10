@@ -29,6 +29,7 @@ groundwork/
     ├── writing.md
     ├── strategy.md
     ├── evaluation.md
+    ├── value-proposition.md
     └── agentic.md
 ```
 
@@ -39,7 +40,7 @@ The core brief covers capability shape, failure mode families, and six standing 
 ## Install
 
 ```bash
-git clone https://github.com/[your-handle]/groundwork.git ~/src/groundwork
+git clone https://github.com/MetaHeavies/groundwork.git ~/src/groundwork
 ln -sf ~/src/groundwork ~/.claude/skills/groundwork
 ```
 
