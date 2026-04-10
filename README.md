@@ -75,48 +75,39 @@ Plus seven domain modules that extend the brief for specific kinds of work and l
 
 ## Install
 
-Groundwork is a [Claude Code plugin](https://docs.claude.com/en/docs/claude-code/plugins). The plugin contains a single skill (`brief`) that auto-loads when the task calls for it.
-
-**Quickest path — load directly from a clone:**
-
-```bash
-git clone https://github.com/MetaHeavies/groundwork.git
-claude --plugin-dir ./groundwork
-```
-
-**Or run from anywhere without cloning into your working dir:**
+Groundwork is a [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills). Clone the repo anywhere and symlink it into your Claude Code skills directory:
 
 ```bash
 git clone https://github.com/MetaHeavies/groundwork.git ~/src/groundwork
-claude --plugin-dir ~/src/groundwork
+ln -sf ~/src/groundwork ~/.claude/skills/groundwork
 ```
 
-Inside the session, you can verify it loaded by running `/plugin` — `groundwork` should appear in the list. The skill is marked `user-invocable: false`, so there's no slash command for the user. Claude auto-loads the brief when your task matches *"substantial, long-running, agentic, or high-stakes"*. You don't trigger it. You just give it a real task.
+That's it. No slash command, no flag, nothing to remember. Groundwork is `user-invocable: false` — Claude auto-loads it when your task matches *"substantial, long-running, agentic, or high-stakes"*. You don't trigger it. You just give it a real task.
 
-**No flag per session?** Add the plugin to your Claude Code config so it loads automatically — see the [plugins reference](https://docs.claude.com/en/docs/claude-code/plugins-reference) for details.
+**Project-scoped install instead of personal:** symlink into `.claude/skills/groundwork` inside the project root. The skill then only activates for that project.
+
+**Verify it loaded:** in a fresh Claude Code session, ask *"what skills are available?"* — `groundwork` should appear in the list.
+
+**Update:** `git -C ~/src/groundwork pull`. The symlink picks up the new commit automatically.
+
+**Uninstall:** `rm ~/.claude/skills/groundwork`. The repo itself is untouched.
 
 ## What's inside
 
 ```
-groundwork/                         # plugin root (this repo)
-├── .claude-plugin/
-│   └── plugin.json                 # plugin manifest (name, version, metadata)
-└── skills/
-    └── brief/                      # the skill
-        ├── SKILL.md                # main brief: 6 properties, 5 failure families
-        └── modules/                # loaded on demand, not upfront
-            ├── AGENTIC-SYSTEMS.md  # tool use, multi-step, autonomous pipelines
-            ├── ARCHITECTURE.md     # systems, structural, spatial
-            ├── EVALUATION-SYSTEMS.md # scoring, grading, testing
-            ├── STRATEGY.md         # positioning, advisory, framing
-            ├── VALUE-PROPOSITION.md # brand architecture, intrinsics
-            ├── VISUAL-DESIGN.md    # visual, material, sensory
-            └── WRITING.md          # editorial, voice, long-form
+groundwork/
+├── SKILL.md                   # main brief: 6 properties, 5 failure families
+└── modules/                   # loaded on demand, not upfront
+    ├── AGENTIC-SYSTEMS.md     # tool use, multi-step, autonomous pipelines
+    ├── ARCHITECTURE.md        # systems, structural, spatial
+    ├── EVALUATION-SYSTEMS.md  # scoring, grading, testing
+    ├── STRATEGY.md            # positioning, advisory, framing
+    ├── VALUE-PROPOSITION.md   # brand architecture, intrinsics
+    ├── VISUAL-DESIGN.md       # visual, material, sensory
+    └── WRITING.md             # editorial, voice, long-form
 ```
 
-The plugin is thin — it exists only to package and distribute the skill. The real content is in `skills/brief/SKILL.md` (438 lines) and its supporting modules. Every documented claim cites a section of the card. Modules load only when their domain is in play, so long reference content costs nothing until needed.
-
-Internal reference: the skill is addressed as `groundwork:brief`. Since it's `user-invocable: false`, you never type that — it's cosmetic routing for Claude's auto-invocation.
+`SKILL.md` is 438 lines. Every documented claim cites a section of the card. Modules load only when their domain is in play, so long reference content costs nothing until needed.
 
 ## Who this is for
 
@@ -140,7 +131,7 @@ Be honest about the shape of the thing:
 
 ## Format
 
-Groundwork is a [Claude Code plugin](https://docs.claude.com/en/docs/claude-code/plugins) containing a single [skill](https://docs.claude.com/en/docs/claude-code/skills). It implements the [Agent Skills open standard](https://agentskills.io). The skill frontmatter uses documented fields: `name: brief`, `description` (front-loaded for auto-invocation, under the 250-char limit), `user-invocable: false`, `effort: high`. The plugin manifest in `.claude-plugin/plugin.json` provides package metadata (name, version, author, repository, license, keywords).
+Groundwork follows the [Claude Code skills format](https://docs.claude.com/en/docs/claude-code/skills), which implements the [Agent Skills open standard](https://agentskills.io). The frontmatter uses documented fields: `name: groundwork`, `description` (front-loaded for auto-invocation, under the 250-char limit), `user-invocable: false`, `effort: high`. `SKILL.md` is 438 lines (under the 500-line documented tip). Domain modules are referenced from `SKILL.md` and load on demand, so long reference content costs nothing until needed.
 
 ## Contributing
 
