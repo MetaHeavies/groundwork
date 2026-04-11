@@ -5,11 +5,25 @@
 Good writing is not good presentation of a thought — it is the thought.
 A piece of writing that is unclear is not a clear idea badly expressed;
 it is an unclear idea. Before drafting, the thinking must be sufficiently
-developed to have something to say. If the brief does not supply a position,
-surface that gap before writing begins.
+developed to have something to say.
 
-"Before I draft this, I want to confirm the core claim: what is the one
-thing this piece needs to establish? Everything else is in service of that."
+**If the brief does not supply an explicit position but gives you enough
+to pick one, pick one and draft.** Then name the choice you made and
+offer a single alternative if one is obviously also viable. Refusing to
+draft until the user confirms a position is not rigour; it is friction.
+Clarification before drafting is the right move only when multiple
+possible outputs are fundamentally different in kind — not for picking
+between plausible thesis angles on a defined topic.
+
+If the brief is genuinely under-specified in a way that makes the
+output impossible to commit to — the audience is unknown, the
+deliverable's form is unclear, the core claim is truly unknowable
+from context — then surface that gap before writing begins. But the
+default move is: draft, then sharpen.
+
+"I'm going to draft this with [position X] because it's the angle
+that best serves [audience/reason]. If you meant a different angle,
+say so and I'll revise." Then draft.
 
 ---
 
